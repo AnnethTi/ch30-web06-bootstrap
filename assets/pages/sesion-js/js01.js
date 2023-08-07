@@ -69,3 +69,26 @@ const myObj = {
     [myKey] : 567, 
 }
 console.log( myObj );
+
+// - - - - - - - -- - - -- - - - -- Objetos en JavaScript
+// tipo de datos array
+const cancionesCh30 = ['Higtway Star', 'Trouble', 'Saoko', 'Rock Dj'];
+
+
+// tipos de datos Object
+const misDatos = {
+    name : 'Anneth',
+    lastName : 'Tinajero',
+    age : 21,
+    isBelicoso : false,
+    fullName : function(){
+        return `Nombre completo de Anneth: ${this.name} ${this.lastName}`
+    },
+    fullNameUpperCase : function(){
+        return `Nombre completo de Anneth: ${(`${this.name} ${this.lastName}`).toUpperCase()}`
+    }
+}
+
+console.log(misDatos)
+console.log(misDatos.fullName())
+console.log(misDatos.fullNameUpperCase())
