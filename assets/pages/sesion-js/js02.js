@@ -238,12 +238,65 @@ console.log(`Comúnxpartes: ${getCoursesWithFilter(student1Courses, student2Cour
 
 const cadena = 'Peso Pluma pica papas con un pico y una pala con un pico pica papas peso pluma'
 
-function contarCaracteres(cadena, caracter){
-    return cadena.toLowerCase().split(caracter.toLowerCase()).length -1 
+function contarCaracteres(cadena, caracter) {
+    return cadena.toLowerCase().split(caracter.toLowerCase()).length - 1
 }
 
 //const contarCaracteres2 = (cadena, caracter) => cadena.split(caracter).length -1 
-const contarCaracteres2 = (cadena, caracter) => cadena.toLowerCase().split(caracter.toLowerCase()).length -1 
+const contarCaracteres2 = (cadena, caracter) => cadena.toLowerCase().split(caracter.toLowerCase()).length - 1
 
-console.log(contarCaracteres(cadena, 'P'))
+console.log(contarCaracteres(cadena, 'p'))
 console.log(contarCaracteres2(cadena, 'P'))
+
+
+// -------------- Recursividad ---------------------
+/*
+  Una función recursiva es una función que se llama así misma durante su ejecución.
+
+  Se utilizan en algoritmos y soluciones que se basan en la división y conquista
+  como cálculos matemáticos, recorrido de estructura de datos y algoritmos de búsqueda
+  y ordenamiento.
+
+  Patrón:
+    function nombreFuncionRecursiva( parametro  ){
+        if( condicionParo){
+            return expresión;
+        }
+        else {
+            // llamada recursiva
+            nombreFuncion( nuevoParametro );
+        }
+    }
+*/
+
+function factorialConCiclorFor(numero) {
+    let resultado = 1;
+    for (let i = 1; i <= numero; i++) resultado *= i;
+    return resultado;
+}
+
+console.log(`El factorial de 5 es: ${factorialConCiclorFor(5)}`);
+
+//......... Cálculo del factorial de un número usando recursividad ...............
+
+function factorialConRecursividad(numero) {
+    if (numero === 1) {
+        return 1;
+    } else {
+        console.log(`${numero} * ${numero - 1}`);
+        return numero * factorialConRecursividad(numero - 1);
+    }
+}
+
+console.log(`El factorial recursivo de 5 es: ${factorialConRecursividad(5)}`);
+
+
+function saludoRecursivo(numeroSaludo) {
+    if (numeroSaludo > 1) {
+        saludoRecursivo(numeroSaludo - 1)
+    }
+    console.log(`Saludo ${numeroSaludo}`);
+}
+
+console.log("****** Saludo Ascendente ******");
+saludoRecursivo(10);
