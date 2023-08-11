@@ -58,3 +58,125 @@ for (const equipo of personasEnCh30 ) {
     }
 }
 
+// ---------------- forEach -------------------------
+/*
+ Método que se utiliza para iterar colecciones, arreglos.
+ Permite ejecutar una función por cada elemento del arreglo.
+*/
+console.table( personasEnCh30 ); 
+
+function iterarEquipos( equipo, indice, arreglo ){
+    console.log(`Indice ${indice}: ${equipo} `)
+    equipo.forEach(  iterarPersonas  );
+    return equipo; // arreglo de cada equipo integrador
+}
+
+function iterarPersonas( persona, indice ){
+    console.log(`Indice P ${indice}: ${persona} `)
+    return persona;
+}
+
+
+// personasEnCh30.forEach( iterarEquipos );
+
+personasEnCh30.forEach( (equipo, indexEquipo) => 
+                    equipo.forEach( (persona, indexPer)=> 
+                    console.log(` [${indexEquipo}][${indexPer}] : ${persona}` )));
+
+// Solo se imprimi el elemento (persona)                    
+//personasEnCh30.forEach( equipo => equipo.forEach( persona=> console.log(`${persona}`)));
+
+myPet.split('').forEach( (character) => console.log( character ) )
+
+//Uso del break
+
+for (let i = 1; i < 6; i++){
+    for (let j = 1; j < 11; j++) {
+     console.log(`${i} *  ${j} = ${ i * j }`)   
+    }
+}
+
+
+console.log('======= Uso del break ========')
+// Realizar la multiplicacion hasta el 4
+for (let i = 1; i < 6; i++){
+    for (let j = 1; j < 11; j++) {
+     if(j === 5) break
+     console.log(`${i} *  ${j} = ${ i * j }`)   
+    }
+}
+
+
+console.log('===== Uso del break con tag ======')
+// Realizar la multiplicacion hasta el 2 * 4
+rompeCiclosSuperior:
+for (let i = 1; i < 6; i++){
+    for (let j = 1; j < 11; j++) {
+        if(i=== 2 && j === 5) break rompeCiclosSuperior
+        console.log(`${i} *  ${j} = ${ i * j }`)   
+    }
+}
+
+// - - - - - Uso de continue - - - - - - 
+/* 
+Termina la ejecucionen la iteracion actual y continua con laproc¿xima iteracion.
+(o en el tag que se indique).
+*/
+
+// Realizar la multiplicacion hasta el 3
+rompeCiclosSuperior:
+for (let i = 1; i < 6; i++){
+    for (let j = 1; j < 11; j++) {
+        if(j === 4) continue rompeCiclosSuperior
+        console.log(`${i} *  ${j} = ${ i * j }`)   
+    }
+}
+
+
+
+// ================= Ciclo While =======
+/* 
+ Crea un bucle que ejecuta una sentencia mientras la condicion especificada
+ se cumpla
+
+
+ Sintaxis:
+ while ( condicion ) sentencia;
+
+ while ( condicion ){
+    sentencias;
+ }
+*/
+
+/* let counter = 1;
+while ( confirm('¿Quieres continuar?') ){
+    console.log(`Veces que has continuado:  ${counter} `)
+    counter++
+} */
+
+
+// ================= Ciclo Do While =======
+/* 
+ Crea un bucle que ejecuta una sentencia mientras la condicion especificada
+ se cumpla. La evaluacion se realiza despues de ejecutar la sentencia.
+ Por lo tanto, la sentencia se va a ejecutar por lo menos una vez
+
+ Sintaxis:
+ do{
+    sentencias;
+ } while( condicion )
+*/
+
+let valor = -2;
+
+while (valor < 5){
+    console.log(`Valor en while ${valor}`);
+    valor++
+}
+
+
+valor = 4;
+do {
+    console.log(`Valor en do-while ${valor}`);
+    valor++
+} while (valor < 5);
