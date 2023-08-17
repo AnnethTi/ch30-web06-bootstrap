@@ -8,6 +8,7 @@ const getProducts = async() => {
     const response = await responseJSON.json()
 
     console.log(response)
+    return response
 }
 
 /**
@@ -80,10 +81,19 @@ const onClickLifeSpan = () => {
 
 
 // -----------------------------------------------------------------
-function showProducts(){
-    const products = createProductsOfClassProducts();
+async function showProducts(){
+    //const products = createProductsOfClassProducts();
+    const products = await createProductsOfFakeStore()
     const productsCards = createCardsOfProducts(products)
     insertCards(productsCards)
+}
+
+async function createProductsOfFakeStore(){
+    const fakeProducts = await getProducts();
+
+    //return fakeProducts.maps( (fakeProducts)=> new Products(fakeProducts.id , fakeProducts.title) )
+    return fakeProducts.map( ({id, title})=> new Products(id , title) )
+
 }
 
 function createCardsOfProducts( products ){
